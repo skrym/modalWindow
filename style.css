@@ -29,8 +29,10 @@
 }
 
 h1 {
-  margin: 0 150px;
-    font-size: 48px;
+  margin: 0 150px 10px;
+  font-size: 48px;
+  border: solid 5px black
+
 }
 
 .close {
