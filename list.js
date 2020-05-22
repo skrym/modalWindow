@@ -34,25 +34,21 @@ $('body').append('<ol class="tracks"></ol>')
 
 renderList(playList)
 
-function renderList(playList) {
-    for(let listItem of playList) {
-    let $listItem = $(`<li class="track">${listItem.author} - ${listItem.song} 
-    <button class="open-modal">Прослушать</button></li>`)
-    $('.tracks').append($listItem)
-    let $openModalBtn = $listItem.find('.open-modal')
-    $openModalBtn.click(function() { openModal(listItem.author, listItem.song, $listItem)})
-    }
-}
+  function renderList(playList) {
+      for(let listItem of playList) {
+      let $listItem = $(`<li class="track">${listItem.author} - ${listItem.song} 
+      <button class="open-modal">Прослушать</button></li>`)
+      $('.tracks').append($listItem)
 
-function openModal(autor, song, listItem) {
-    $('body').append('<div class="modal-window"></div>')
-	$('.modal-window').append(`<h1>${autor} - ${song}</h1><button class="close">Закрыть</button>` )
-	let $closeBtn = $('.close')
-	$closeBtn.click(function(){
-	$('.modal-window').remove()
-	listItem.append('<hr/>')
-	})
-	
-}
+      let $openModalBtn = $listItem.find('.open-modal')
+
+      $openModalBtn.click(function() { $('body').append(`<div class="modal-window"><h1>${listItem.author} - ${listItem.song}</h1><button class="close">Закрыть</button></div>`)
+      $('.close').click(function(){
+      $('.modal-window').remove()
+      $listItem.append('<hr/>')})
+      })
+    }
+  }
+
 })
 
